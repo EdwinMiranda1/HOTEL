@@ -1,0 +1,35 @@
+{% extends 'principales/base.html' %}
+
+{% block cuerpo %}
+    <h3>🛠️ LISTA DE SERVICIOS ADICIONALES</h3>
+    <hr>
+    <a href="{% url 'nuevo_servicio' %}" style="text-decoration: none; font-weight: bold; color: blue;">+ Nuevo Servicio</a>
+    <br><br>
+
+    <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; text-align: left;">
+        <thead style="background-color: #eee;">
+            <tr>
+                <th>Nro.</th>
+                <th>Nombre Servicio</th>
+                <th>Precio Diario</th>
+                <th>Descripción</th>
+                <th>Fecha Registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in servicios %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><b>{{ s.nombre }}</b></td>
+                <td>Bs. {{ s.precio }}</td>
+                <td>{{ s.descripcion }}</td>
+                <td>{{ s.fecha|default:"-" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No hay servicios registrados en este momento.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

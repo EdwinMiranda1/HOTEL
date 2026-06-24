@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la habitacion</title>
+</head>
+<body>
+    <h3>Detalles de la habitación</h3>
+    Numero: {{ habitacion.piso }}{{ habitacion.numero }}<br>
+    Estado: {{ habitacion.estado }}<br>
+    Precio: Bs. {{ habitacion.precio|floatformat:2 }}<br>
+    Telefono: {{ habitacion.telefono }}<br>
+    Descripcion: {{ habitacion.descripcion }}<br>
+    Con baño: {% if habitacion.banio %}Si{% else %}No{% endif %}<br>
+    Tipo: {{ habitacion.tipo }}<br>
+    <a href="{% url 'index_habitaciones' %}">Volver</a>
+</body>
+</html>

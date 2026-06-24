@@ -1,0 +1,26 @@
+<ul>
+    <li><a href="{% url 'index' %}">Inicio</a></li>
+    <ul>Habitaciones
+        <li><a href="{% url 'index_habitaciones' %}">Lista</a></li>
+        <li><a href="{% url 'nueva_habitacion' %}">Nueva</a></li>
+        <li><a href="{% url 'index_tipo' %}">Tipos</a></li>
+    </ul>
+    <ul>Servcicios
+        <li><a href="{% url 'index_servicio' %}">Lista</a></li>
+        <li><a href="{% url 'nuevo_servicio' %}">Nuevo</a></li>
+        
+    </ul>
+    <ul>Reservas
+        <li><a href="{% url 'index_reservas' %}">Lista Reservas</a></li>
+        <li><a href="{% url 'nueva_reserva' %}">Nueva Reserva</a></li>
+    </ul>
+    <ul>Caja y Pagos
+        <li><a href="{% url 'index_pagos' %}">Historial de Pagos</a></li>
+        <li><a href="{% url 'nuevo_pago' %}">Registrar Pago</a></li>
+    </ul>
+    <ul>Huéspedes
+        <li><a href="{% url 'index_huespedes' %}">Lista Huéspedes</a></li>
+        <li><a href="{% url 'nuevo_huesped' %}">Nuevo Huésped</a></li>
+    </ul>
+
+</ul>

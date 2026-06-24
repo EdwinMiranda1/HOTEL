@@ -1,0 +1,13 @@
+{% extends 'principales/base.html' %}
+
+{% block cuerpo %}
+    <h3>💵 Registrar Nuevo Pago</h3>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" style="background-color: #28a745; color: white; border: none; padding: 8px 15px; font-weight: bold; cursor: pointer;">Guardar Pago</button>
+        <a href="{% url 'index_pagos' %}" style="margin-left: 10px;">Volver al Historial</a>
+    </form>
+{% endblock %}

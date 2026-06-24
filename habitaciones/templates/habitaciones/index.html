@@ -1,0 +1,37 @@
+{% extends 'principales/base.html' %}
+{% block titulo %}
+Lista de habitaciones
+{% endblock %}
+
+{% block cuerpo %}
+    <h3>Datos de las habitaciones</h3>
+    <a href="{% url 'nueva_habitacion' %}">Nueva habitación</a>
+    <table border="1", width="90%" align="center">
+        <thead>
+            <tr>
+                <th>Nro.</th>
+                <th>Numero</th>
+                <th>Estado</th>
+                <th>Precio (Bs.)</th>
+                <th>Tipo</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for habitacion in habitaciones %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ habitacion.piso }}{{ habitacion.numero }}</td>
+                <td>{{ habitacion.estado }}</td>
+                <td align="right">{{ habitacion.precio|floatformat:2 }}</td>
+                <td>{{ habitacion.tipo }}</td>
+                <td>
+                    <a href="{% url 'detalle_habitacion' habitacion.id %}">Mostrar</a> | 
+                    <a href="{% url 'edit_habitacion' habitacion.id %}">Editar</a> |
+                    <a href="">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

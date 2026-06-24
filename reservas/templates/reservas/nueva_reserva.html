@@ -1,0 +1,14 @@
+{% extends 'principales/base.html' %}
+
+{% block cuerpo %}
+    <h3>📅 Registrar Nueva Reserva</h3>
+    <p style="color: gray; font-size: 0.9em;">* Nota: Puedes seleccionar múltiples habitaciones o huéspedes manteniendo presionada la tecla Ctrl (o Cmd en Mac).</p>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit">Confirmar Reserva</button>
+        <a href="{% url 'index_reservas' %}" style="margin-left: 10px;">Volver</a>
+    </form>
+{% endblock %}

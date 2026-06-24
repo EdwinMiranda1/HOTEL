@@ -1,0 +1,11 @@
+{% extends 'principales/base.html' %}
+{% block cuerpo %}
+    <h3>Datos de un nuevo servicio</h3>
+    <form method="POST" action="{% url 'nuevo_servicio' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+        <button type="reset">Borrar</button>
+        <a href="{% url 'index_servicio' %}">Volver</a>
+    </form>
+{% endblock %}

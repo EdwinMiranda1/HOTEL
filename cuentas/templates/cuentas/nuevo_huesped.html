@@ -1,0 +1,19 @@
+{% extends 'principales/base.html' %}
+
+{% block cuerpo %}
+    <h3>👥 Registrar Nuevo Huésped</h3>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        {% if form.errors %}
+            <div style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+                <strong>Por favor corrige los siguientes errores:</strong>
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 8px 15px; font-weight: bold; cursor: pointer;">Guardar Huésped</button>
+        <a href="{% url 'index_huespedes' %}" style="margin-left: 10px;">Volver</a>
+    </form>
+{% endblock %}

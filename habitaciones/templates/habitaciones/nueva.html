@@ -1,0 +1,25 @@
+{% extends 'principales/base.html' %}
+{% block cuerpo %}
+    <h3>Datos de la nueva habitación</h3>
+    <form method="POST" action="{% url 'nueva_habitacion' %}">
+        {% csrf_token %}
+        Numero: <input type="number" name="numero" id="numero"><br>
+        Piso: <input type="number" name="piso" id="piso"><br>
+        Estado: 
+        <input type="radio" name="estado" value="Disponible" id="dis"><label for="dis">Disponible</label>
+        <input type="radio" name="estado" value="Bueno" id="bue" checked><label for="bue">Bueno</label>
+        <input type="radio" name="estado" value="En mantenimiento" id="man"><label for="man">En mantenimiento</label><br>
+        Precio: <input type="number" name="precio" step="0.01" min="0" value="100.00"><br>
+        Telefono: <input type="number" name="telefono" maxlength="8" minlength="8" required placeholder="Introduzca un telofono"><br>
+        Descripcion: <textarea name="descripcion" cols="25" rows="5"></textarea><br>
+        Tiene baño?: <input type="checkbox" name="banio" checked><br>
+        Tipo: <select name="tipo">
+                {% for tipo in tipos %}
+                <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
+                {% endfor %}
+            </select><br>
+        <button type="submit">Guardar</button>
+        <button type="reset">Borrar</button>
+        <a href="{% url 'index_habitaciones' %}">Cancelar</a>
+    </form>
+{% endblock %}

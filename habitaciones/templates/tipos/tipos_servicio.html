@@ -1,0 +1,36 @@
+{% extends 'principales/base.html' %}
+
+{% block cuerpo %}
+    <h2>📋 GESTIÓN DE TIPOS DE HABITACIÓN</h2>
+    <hr>
+
+    <h3>📥 Registrar Nuevo Tipo</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}  <br>
+        <button type="submit">Guardar Tipo</button>
+    </form>
+    
+    <br><br>
+    <hr>
+
+    <h3>Lista de Categorías</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead style="background-color: #eee;">
+            <tr>
+                <th>Nombre del Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in tipos %}
+            <tr>
+                <td><b>{{ t.nombre }}</b></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No hay tipos registrados todavía.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'principales/base.html' %}
+
+{% block cuerpo %}
+    <h2>💵 HISTORIAL DE PAGOS RECIBIDOS</h2>
+    <hr>
+    <a href="{% url 'nuevo_pago' %}" style="text-decoration: none; font-weight: bold; color: green;">+ Registrar Nuevo Pago</a>
+    <br><br>
+
+    <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; text-align: left;">
+        <thead style="background-color: #eee;">
+            <tr>
+                <th>Nro.</th>
+                <th>Fecha y Hora</th>
+                <th>Reserva (Fecha Inicio)</th>
+                <th>Método de Pago</th>
+                <th>Monto</th>
+                <th>Descripción / Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in pagos %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ p.fecha }}</td>
+                <td>{{ p.reserva.fecha_inicio }}</td>
+                <td><span style="background-color: #e2f0d9; padding: 2px 6px; border-radius: 4px;"><b>{{ p.get_tipo_display }}</b></span></td>
+                <td><b>Bs. {{ p.monto }}</b></td>
+                <td>{{ p.descripcion }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No se ha registrado ningún pago todavía.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
