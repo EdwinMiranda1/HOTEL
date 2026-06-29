@@ -25,9 +25,10 @@ class FormServicioNew(forms.Form):
         widget=forms.Textarea(attrs={'cols': 50, 'rows': 15, 'class': 'area_texto'})
     )
     fecha = forms.DateField(
-        initial=datetime.now().strftime('%Y-%m-%d'),
-        widget=forms.DateInput(attrs={'type': 'date'})
+    initial=timezone.localdate(),
+    widget=forms.DateInput(attrs={'type': 'date'})
     )
+
 
     def clean_fecha(self):
         fecha = self.cleaned_data["fecha"]

@@ -49,7 +49,9 @@ class Habitacion(models.Model):
 
 class HabitacionServicio(models.Model):
     cantidad = models.SmallIntegerField(default=1)
-    fecha = models.DateTimeField(default=timezone.now)
+    from django.utils import timezone
+    fecha = models.DateField(default=timezone.localdate, null=True, blank=True)
+   # fecha = models.DateTimeField(default=timezone.now)
     habitacion = models.ForeignKey(Habitacion, on_delete=models.PROTECT, related_name="habitacioneservicios")
     servicio = models.ForeignKey(Servicio, on_delete=models.PROTECT, related_name='habitacionservicios')
 

@@ -1,26 +1,88 @@
-<ul>
-    <li><a href="{% url 'index' %}">Inicio</a></li>
-    <ul>Habitaciones
-        <li><a href="{% url 'index_habitaciones' %}">Lista</a></li>
-        <li><a href="{% url 'nueva_habitacion' %}">Nueva</a></li>
-        <li><a href="{% url 'index_tipo' %}">Tipos</a></li>
-    </ul>
-    <ul>Servcicios
-        <li><a href="{% url 'index_servicio' %}">Lista</a></li>
-        <li><a href="{% url 'nuevo_servicio' %}">Nuevo</a></li>
-        
-    </ul>
-    <ul>Reservas
-        <li><a href="{% url 'index_reservas' %}">Lista Reservas</a></li>
-        <li><a href="{% url 'nueva_reserva' %}">Nueva Reserva</a></li>
-    </ul>
-    <ul>Caja y Pagos
-        <li><a href="{% url 'index_pagos' %}">Historial de Pagos</a></li>
-        <li><a href="{% url 'nuevo_pago' %}">Registrar Pago</a></li>
-    </ul>
-    <ul>Huéspedes
-        <li><a href="{% url 'index_huespedes' %}">Lista Huéspedes</a></li>
-        <li><a href="{% url 'nuevo_huesped' %}">Nuevo Huésped</a></li>
-    </ul>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  
+  <a href="#" class="brand-link">
+    <span class="brand-text font-weight-light text-center d-block"><b>SIS</b>HOTEL</span>
+  </a>
 
-</ul>
+  <div class="sidebar">
+    
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="info">
+        <a href="#" class="d-block text-center">Administrador</a>
+      </div>
+    </div>
+
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-bed"></i>
+            <p>
+              Habitaciones
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lista de Habitaciones</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Nueva Habitación</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-concierge-bell"></i>
+            <p>
+              Servicios
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lista de Servicios</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Nuevo Servicio</p>
+                  
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-calendar-check"></i>
+            <p>
+              Reservas
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lista de Reservas</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</aside>

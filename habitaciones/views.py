@@ -49,7 +49,8 @@ def nueva_habitacion(request):
     
 def index_servicio(request):
     servicios = Servicio.objects.all().order_by('nombre')
-    return render(request, 'servicios/index.html')
+    return render(request, 'servicios/index.html', {'servicios': servicios})
+
     
 def nuevo_servicio(request):
     if request.method == 'GET':
@@ -77,3 +78,10 @@ def edit_habitacion(request, id):
             form.save()
             return redirect('index_habitaciones')
     return render(request, 'habitaciones/edit.html', {'form': form, 'id': id})
+
+def eliminar_servicio(request, id):
+    servicio = get_object_or_404(Servicio, pk=id)
+    if request.method == 'POST':   # seguridad: solo elimina con POST
+        servicio.delete()
+        return redirect('index_servicio')
+    return redirect('index_servicio')

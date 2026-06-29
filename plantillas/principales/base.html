@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %}SISHOTEL{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+
     {% block css_owner %}{% endblock %}
 </head>
-<body>
-    <table width="98%" align="center" border="1" style="border-collapse: collapse;">
-        <!-- Aqui esta la configuración del encabezado -->
-        <thead>
-            <tr>
-                <td colspan="2">{% include 'parciales/head.html' %}</td>
-            </tr>
-        </thead>
-        <!-- Fin encabezado -->
-        <tbody>
-            <tr>
-                <td width="20%" valign="top">{% include 'parciales/menu.html' %}</td>
-                <td>{% block cuerpo %}{% endblock %}</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="2">Contacto</td>
-            </tr>
-        </tfoot>
-    </table>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        {% include 'parciales/head.html' %}
+        {% include 'parciales/menu.html' %}
+
+        <div class="content-wrapper">
+            <section class="content p-4"> 
+                {% block cuerpo %}
+                {% endblock %}
+            </section>
+        </div>
+
+        <footer class="main-footer text-center">
+            <strong>SISHOTEL &copy; 2026.</strong> Todos los derechos reservados.
+        </footer>
+
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    
     {% block js_owner %}{% endblock %}
 </body>
 </html>

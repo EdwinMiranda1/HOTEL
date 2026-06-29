@@ -24,6 +24,15 @@
                 <td>Bs. {{ s.precio }}</td>
                 <td>{{ s.descripcion }}</td>
                 <td>{{ s.fecha|default:"-" }}</td>
+                <td>
+                    <form method="POST" action="{% url 'eliminar_servicio' s.id %}" style="display:inline;">
+                             {% csrf_token %}
+                        <button type="submit" style="color:red; font-weight:bold; border:none; background:none; cursor:pointer;">
+                          Eliminar
+                        </button>
+                    </form>
+                </td>
+
             </tr>
             {% empty %}
             <tr>
